@@ -1,7 +1,20 @@
-import express from "express";
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import userRouter from './user.router.js';
+dotenv.config();
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const app = express();
+
+app.use(express.json());
+
+mongoose
+    .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((error) => console.error('Failed to connect to MongoDB:', error));
+
+app.use('/api/users', userRouter);
 
 app.listen(PORT, function () {
     console.log('Serveur lancé sur le port 5000');

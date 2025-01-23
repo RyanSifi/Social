@@ -1,11 +1,11 @@
 {
   "name": "social-back",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/routes/index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "dev": "nodemon src/routes/index.js",
+    "start": "node src/routes/index.js"
   },
   "author": "",
   "license": "ISC",
